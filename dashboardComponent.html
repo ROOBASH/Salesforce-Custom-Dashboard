@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Salesforce CRM Dashboard" icon-name="standard:dashboard">
+        <div class="slds-grid slds-gutters">
+            <!-- Account Table -->
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-card title="Accounts">
+                    <template if:true={accounts}>
+                        <table class="slds-table slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Industry</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={accounts} for:item="acc">
+                                    <tr key={acc.Id}>
+                                        <td>{acc.Name}</td>
+                                        <td>{acc.Industry}</td>
+                                        <td>${acc.AnnualRevenue}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </lightning-card>
+            </div>
+
+            <!-- Opportunity Table -->
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-card title="Opportunities">
+                    <template if:true={opportunities}>
+                        <table class="slds-table slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Stage</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={opportunities} for:item="opp">
+                                    <tr key={opp.Id}>
+                                        <td>{opp.Name}</td>
+                                        <td>{opp.StageName}</td>
+                                        <td>${opp.Amount}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </lightning-card>
+            </div>
+        </div>
+    </lightning-card>
+</template>
